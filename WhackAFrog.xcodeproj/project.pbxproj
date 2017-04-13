@@ -1,0 +1,524 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45384B1C1E9F81D600ADCA15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B1B1E9F81D600ADCA15 /* AppDelegate.swift */; };
+		45384B1E1E9F81D600ADCA15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B1D1E9F81D600ADCA15 /* ViewController.swift */; };
+		45384B211E9F81D600ADCA15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45384B1F1E9F81D600ADCA15 /* Main.storyboard */; };
+		45384B241E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 45384B221E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld */; };
+		45384B261E9F81D600ADCA15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45384B251E9F81D600ADCA15 /* Assets.xcassets */; };
+		45384B291E9F81D600ADCA15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45384B271E9F81D600ADCA15 /* LaunchScreen.storyboard */; };
+		45384B341E9F81D600ADCA15 /* WhackAFrogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B331E9F81D600ADCA15 /* WhackAFrogTests.swift */; };
+		45384B3F1E9F81D600ADCA15 /* WhackAFrogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B3E1E9F81D600ADCA15 /* WhackAFrogUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45384B301E9F81D600ADCA15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45384B101E9F81D600ADCA15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45384B171E9F81D600ADCA15;
+			remoteInfo = WhackAFrog;
+		};
+		45384B3B1E9F81D600ADCA15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45384B101E9F81D600ADCA15 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45384B171E9F81D600ADCA15;
+			remoteInfo = WhackAFrog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45384B181E9F81D600ADCA15 /* WhackAFrog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhackAFrog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45384B1B1E9F81D600ADCA15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45384B1D1E9F81D600ADCA15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45384B201E9F81D600ADCA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45384B231E9F81D600ADCA15 /* WhackAFrog.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhackAFrog.xcdatamodel; sourceTree = "<group>"; };
+		45384B251E9F81D600ADCA15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45384B281E9F81D600ADCA15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45384B2A1E9F81D600ADCA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45384B2F1E9F81D600ADCA15 /* WhackAFrogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhackAFrogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45384B331E9F81D600ADCA15 /* WhackAFrogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackAFrogTests.swift; sourceTree = "<group>"; };
+		45384B351E9F81D600ADCA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45384B3A1E9F81D600ADCA15 /* WhackAFrogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhackAFrogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45384B3E1E9F81D600ADCA15 /* WhackAFrogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackAFrogUITests.swift; sourceTree = "<group>"; };
+		45384B401E9F81D600ADCA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45384B151E9F81D600ADCA15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B2C1E9F81D600ADCA15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B371E9F81D600ADCA15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45384B0F1E9F81D600ADCA15 = {
+			isa = PBXGroup;
+			children = (
+				45384B1A1E9F81D600ADCA15 /* WhackAFrog */,
+				45384B321E9F81D600ADCA15 /* WhackAFrogTests */,
+				45384B3D1E9F81D600ADCA15 /* WhackAFrogUITests */,
+				45384B191E9F81D600ADCA15 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45384B191E9F81D600ADCA15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45384B181E9F81D600ADCA15 /* WhackAFrog.app */,
+				45384B2F1E9F81D600ADCA15 /* WhackAFrogTests.xctest */,
+				45384B3A1E9F81D600ADCA15 /* WhackAFrogUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45384B1A1E9F81D600ADCA15 /* WhackAFrog */ = {
+			isa = PBXGroup;
+			children = (
+				45384B1B1E9F81D600ADCA15 /* AppDelegate.swift */,
+				45384B1D1E9F81D600ADCA15 /* ViewController.swift */,
+				45384B1F1E9F81D600ADCA15 /* Main.storyboard */,
+				45384B251E9F81D600ADCA15 /* Assets.xcassets */,
+				45384B271E9F81D600ADCA15 /* LaunchScreen.storyboard */,
+				45384B2A1E9F81D600ADCA15 /* Info.plist */,
+				45384B221E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld */,
+			);
+			path = WhackAFrog;
+			sourceTree = "<group>";
+		};
+		45384B321E9F81D600ADCA15 /* WhackAFrogTests */ = {
+			isa = PBXGroup;
+			children = (
+				45384B331E9F81D600ADCA15 /* WhackAFrogTests.swift */,
+				45384B351E9F81D600ADCA15 /* Info.plist */,
+			);
+			path = WhackAFrogTests;
+			sourceTree = "<group>";
+		};
+		45384B3D1E9F81D600ADCA15 /* WhackAFrogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				45384B3E1E9F81D600ADCA15 /* WhackAFrogUITests.swift */,
+				45384B401E9F81D600ADCA15 /* Info.plist */,
+			);
+			path = WhackAFrogUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45384B171E9F81D600ADCA15 /* WhackAFrog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45384B431E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrog" */;
+			buildPhases = (
+				45384B141E9F81D600ADCA15 /* Sources */,
+				45384B151E9F81D600ADCA15 /* Frameworks */,
+				45384B161E9F81D600ADCA15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhackAFrog;
+			productName = WhackAFrog;
+			productReference = 45384B181E9F81D600ADCA15 /* WhackAFrog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45384B2E1E9F81D600ADCA15 /* WhackAFrogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45384B461E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrogTests" */;
+			buildPhases = (
+				45384B2B1E9F81D600ADCA15 /* Sources */,
+				45384B2C1E9F81D600ADCA15 /* Frameworks */,
+				45384B2D1E9F81D600ADCA15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45384B311E9F81D600ADCA15 /* PBXTargetDependency */,
+			);
+			name = WhackAFrogTests;
+			productName = WhackAFrogTests;
+			productReference = 45384B2F1E9F81D600ADCA15 /* WhackAFrogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		45384B391E9F81D600ADCA15 /* WhackAFrogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45384B491E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrogUITests" */;
+			buildPhases = (
+				45384B361E9F81D600ADCA15 /* Sources */,
+				45384B371E9F81D600ADCA15 /* Frameworks */,
+				45384B381E9F81D600ADCA15 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45384B3C1E9F81D600ADCA15 /* PBXTargetDependency */,
+			);
+			name = WhackAFrogUITests;
+			productName = WhackAFrogUITests;
+			productReference = 45384B3A1E9F81D600ADCA15 /* WhackAFrogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45384B101E9F81D600ADCA15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Matan;
+				TargetAttributes = {
+					45384B171E9F81D600ADCA15 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					45384B2E1E9F81D600ADCA15 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 45384B171E9F81D600ADCA15;
+					};
+					45384B391E9F81D600ADCA15 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 45384B171E9F81D600ADCA15;
+					};
+				};
+			};
+			buildConfigurationList = 45384B131E9F81D600ADCA15 /* Build configuration list for PBXProject "WhackAFrog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45384B0F1E9F81D600ADCA15;
+			productRefGroup = 45384B191E9F81D600ADCA15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45384B171E9F81D600ADCA15 /* WhackAFrog */,
+				45384B2E1E9F81D600ADCA15 /* WhackAFrogTests */,
+				45384B391E9F81D600ADCA15 /* WhackAFrogUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45384B161E9F81D600ADCA15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45384B291E9F81D600ADCA15 /* LaunchScreen.storyboard in Resources */,
+				45384B261E9F81D600ADCA15 /* Assets.xcassets in Resources */,
+				45384B211E9F81D600ADCA15 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B2D1E9F81D600ADCA15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B381E9F81D600ADCA15 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45384B141E9F81D600ADCA15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45384B241E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld in Sources */,
+				45384B1E1E9F81D600ADCA15 /* ViewController.swift in Sources */,
+				45384B1C1E9F81D600ADCA15 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B2B1E9F81D600ADCA15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45384B341E9F81D600ADCA15 /* WhackAFrogTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45384B361E9F81D600ADCA15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45384B3F1E9F81D600ADCA15 /* WhackAFrogUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45384B311E9F81D600ADCA15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45384B171E9F81D600ADCA15 /* WhackAFrog */;
+			targetProxy = 45384B301E9F81D600ADCA15 /* PBXContainerItemProxy */;
+		};
+		45384B3C1E9F81D600ADCA15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45384B171E9F81D600ADCA15 /* WhackAFrog */;
+			targetProxy = 45384B3B1E9F81D600ADCA15 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45384B1F1E9F81D600ADCA15 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45384B201E9F81D600ADCA15 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		45384B271E9F81D600ADCA15 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45384B281E9F81D600ADCA15 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45384B411E9F81D600ADCA15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45384B421E9F81D600ADCA15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45384B441E9F81D600ADCA15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WhackAFrog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45384B451E9F81D600ADCA15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = WhackAFrog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrog;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		45384B471E9F81D600ADCA15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WhackAFrogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhackAFrog.app/WhackAFrog";
+			};
+			name = Debug;
+		};
+		45384B481E9F81D600ADCA15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WhackAFrogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrogTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhackAFrog.app/WhackAFrog";
+			};
+			name = Release;
+		};
+		45384B4A1E9F81D600ADCA15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WhackAFrogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WhackAFrog;
+			};
+			name = Debug;
+		};
+		45384B4B1E9F81D600ADCA15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WhackAFrogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = matanc.com.WhackAFrogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WhackAFrog;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45384B131E9F81D600ADCA15 /* Build configuration list for PBXProject "WhackAFrog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45384B411E9F81D600ADCA15 /* Debug */,
+				45384B421E9F81D600ADCA15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45384B431E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45384B441E9F81D600ADCA15 /* Debug */,
+				45384B451E9F81D600ADCA15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45384B461E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45384B471E9F81D600ADCA15 /* Debug */,
+				45384B481E9F81D600ADCA15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45384B491E9F81D600ADCA15 /* Build configuration list for PBXNativeTarget "WhackAFrogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45384B4A1E9F81D600ADCA15 /* Debug */,
+				45384B4B1E9F81D600ADCA15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		45384B221E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				45384B231E9F81D600ADCA15 /* WhackAFrog.xcdatamodel */,
+			);
+			currentVersion = 45384B231E9F81D600ADCA15 /* WhackAFrog.xcdatamodel */;
+			path = WhackAFrog.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 45384B101E9F81D600ADCA15 /* Project object */;
+}
