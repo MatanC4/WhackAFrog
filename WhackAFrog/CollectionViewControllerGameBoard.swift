@@ -10,11 +10,16 @@ import UIKit
 
 class CollectionViewControllerGame: UICollectionViewController {
     
+    @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet var scoreHeader: [UICollectionReusableView]!
     
     @IBOutlet weak var scoreCount: UILabel!
     @IBOutlet weak var missCount: UILabel!
     @IBOutlet weak var hitsCount: UILabel!
+    var gameLevel: Int!
+    
+    
+    
  
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 4
@@ -37,7 +42,6 @@ class CollectionViewControllerGame: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

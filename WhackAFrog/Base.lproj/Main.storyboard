@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" red="0.95615493549999997" green="0.85649336089999994" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="levelBtnMedium:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FOn-Cm-UR3"/>
+                                    <segue destination="Ay3-ss-bV3" kind="modal" identifier="mediumSegue" id="l6M-7t-SU2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klz-VY-tvO">
@@ -44,7 +44,7 @@
                                     <color key="titleShadowColor" red="0.95615493549999997" green="0.85649336089999994" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="levelBtnHard:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bXH-Kq-nL3"/>
+                                    <segue destination="Ay3-ss-bV3" kind="modal" identifier="hardSegue" id="j7u-Zb-DsL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3t-A5-cYs">
@@ -57,7 +57,7 @@
                                     <color key="titleShadowColor" red="0.95615493549873043" green="0.8564933608659614" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="levelBtnEasy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FaS-54-VuU"/>
+                                    <segue destination="Ay3-ss-bV3" kind="modal" identifier="easySegue" id="gUS-jD-W3K"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="whack a frog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuD-ls-qfk">
@@ -80,9 +80,6 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <segue destination="Ay3-ss-bV3" kind="modal" identifier="gameBoardSegue" id="GWX-ii-uvJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -95,7 +92,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="AAf-30-0k0">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.75675904793493698" green="0.77486910994764402" blue="0.77418517828370792" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VZ4-UG-IUk">
                             <size key="itemSize" width="82" height="72"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -134,12 +131,15 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Lets play" id="nGU-KB-vdb" colorLabel="IBBuiltInLabel-Orange">
-                        <barButtonItem key="backBarButtonItem" title="Close" id="5Uf-XZ-JRX"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="5Uf-XZ-JRX"/>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="navBar" destination="nGU-KB-vdb" id="dZJ-lV-nmZ"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R1f-xF-UGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,4 +150,7 @@
         <image name="appIconPipedPiper" width="512" height="512"/>
         <image name="silicon valley poster" width="336" height="480"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="l6M-7t-SU2"/>
+    </inferredMetricsTieBreakers>
 </document>
