@@ -21,30 +21,29 @@ class ViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let controller = segue.destinationViewController as! CollectionViewControllerGame
+        let controller = segue.destinationViewController as! ViewControllerGameBoard
             switch segue.identifier! {
-            case "easySegue":
+            case "easySeg":
                 controller.gameLevel = GameLevel.Easy.rawValue
                 print("Easy game begins")
-            case "mediumSegue":
+                break
+            case "mediumSeg":
                 controller.gameLevel = GameLevel.Medium.rawValue
                 print("Medium game begins")
-            case "hardSegue":
+                break
+            case "hardSeg":
                 controller.gameLevel = GameLevel.Hard.rawValue
                 print("Hard game begins")
+                break
             default:
                 return
             }
     }
     
     
-
-         
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     
        self.levelBtnEasy?.layer.cornerRadius = 10
         print(self.levelBtnEasy?.layer.cornerRadius.hashValue)
