@@ -15,29 +15,16 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var missCount: UILabel!
     @IBOutlet weak var hitsCount: UILabel!
-    //@IBOutlet var scoreHeader: [UICollectionReusableView]!
     var gameLevel: Int!
     
     @IBOutlet weak var CollectionViewGameBoard: UICollectionView!
     
     // data source
-    private let paddingsFromBothSide: CGFloat = 20.0
-    private let cellWidth: CGFloat = 100.0
+    private let paddingsFromBothSide: CGFloat = 10.0
+    private let cellWidth:CGFloat = 80.0
     private var numOfRows: Int = 0
     private var numOfItemsInRow: Int = 0
 
-
-
-    
-    
-    
-//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-//        print(gameLevel)
-//        return 4
-//        
-//    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         drawBoard()
@@ -47,50 +34,93 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
     
     func drawBoard() {
-        
-        let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = CollectionViewGameBoard.layer.preferredFrameSize()
+        print(CollectionViewGameBoard.layer.preferredFrameSize())
+        //let screenSize = UIScreen.mainScreen().bounds
         let gameBoardWidth = screenSize.width
         let gameBoardHeight = screenSize.height
-       // let gameBoardWidth = CollectionViewGameBoard.collectionViewLayout.collectionViewContentSize().width
         print(gameBoardWidth)
-        //let gameBoardHeight: CGFloat = 581.0
-        //let gameBoardHeight = CollectionViewGameBoard.collectionViewLayout.collectionViewContentSize().height
         print(gameBoardHeight)
-        numOfRows = Int((gameBoardHeight) / (cellWidth + paddingsFromBothSide))
-        print(numOfRows)
-        numOfItemsInRow = Int((gameBoardWidth)/(paddingsFromBothSide + cellWidth))
+        numOfItemsInRow = Int((gameBoardHeight)/(cellWidth + paddingsFromBothSide))
+        if numOfItemsInRow>6 {
+           numOfItemsInRow = 6
+        }
+        numOfRows = Int((gameBoardWidth)/cellWidth + paddingsFromBothSide)
+        if numOfRows > 3 {
+            print("num of rows was lowered to 3")
+            numOfRows = 3
+        }
+
         print(numOfItemsInRow)
+        print(numOfRows)
         
+        //startGame()
+//
+//        //updateScoreView()
+//        //updateHitsView()
+//        //updateMissesView()
         
-        //width/(collection view cell width + padding) = number of
-        
-       
-        
-        
-        
-        //updateScoreView()
-        //updateHitsView()
-        //updateMissesView()
-}
-    
-    
-    func numberOfSectionsInCollectionView(in collectionView: UICollectionView) -> Int {
-        return 4 //numOfItemsInRow
+//        let screenHeight = UIScreen.mainScreen().bounds.size.height
+//    
+//        switch (screenHeight) {
+//            
+//        // iPhone 4s
+//        case 480:
+//            
+//            break;
+//            
+//        // iPhone 5s
+//        case 568:
+//            
+//            break;
+//            
+//        // iPhone 6
+//        case 667:
+//            print("detected iPhone 6")
+//            numOfItemsInRow = 6
+//            numOfRows = 3
+//            break;
+//            
+//        // iPhone 6 Plus
+//        case 736:
+//            print("detected iPhone 6 plus")
+//            numOfItemsInRow = 6
+//            numOfRows = 4
+//            break;
+//            
+//        default:
+//            // it's an iPad
+//            
+//            break;
+//        }
+//        
+//        return
     }
+
+
+    
+    //func startGame(parameters)  {
+        
+    //}
+
+    
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4 //numOfRows
+        return numOfItemsInRow
     }
     
-    private struct Storyboard{
-        static let  cellidentifier = "boardCell"
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return numOfRows
     }
+    
+    
+    
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("boardCell", forIndexPath: indexPath) as UICollectionViewCell
-        //cell.backgroundColor = UIColor.blueColor()
-        //cell.setDfaultImage()
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("boardCell", forIndexPath: indexPath) as! MyCollectionViewCell
+        cell.replaceImage(0)
         print("image should be set now")
         return cell
     }
