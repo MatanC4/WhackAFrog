@@ -96,7 +96,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         missCounter.text = "\(miss)"
         if miss==3 {
            showLoserAlert()
-            self.dismissViewControllerAnimated(true, completion: {});
 
         }
     }

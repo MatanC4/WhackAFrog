@@ -60,12 +60,6 @@
                                     <segue destination="LcD-t4-zND" kind="modal" identifier="easySeg" id="UOa-iF-HHc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whack a frog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuD-ls-qfk">
-                                <rect key="frame" x="138" y="188" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,7 +67,6 @@
                             <constraint firstItem="mgV-JW-APY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7Fy-9k-vuQ"/>
                             <constraint firstItem="klz-VY-tvO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="JZ4-te-MkN"/>
                             <constraint firstItem="klz-VY-tvO" firstAttribute="top" secondItem="BPT-PC-8yr" secondAttribute="bottom" constant="24" id="KKW-Gz-Wa9"/>
-                            <constraint firstItem="NuD-ls-qfk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="168" id="Kei-p4-wz0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3t-A5-cYs" secondAttribute="trailing" constant="30" id="KjR-Ro-hnc"/>
                             <constraint firstItem="mgV-JW-APY" firstAttribute="centerY" secondItem="W3t-A5-cYs" secondAttribute="centerY" id="POb-e2-yOK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3t-A5-cYs" secondAttribute="trailing" constant="30" id="SHT-is-zLJ"/>
@@ -85,7 +78,6 @@
                             <constraint firstItem="BPT-PC-8yr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="rkW-DF-RLp"/>
                             <constraint firstItem="W3t-A5-cYs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="v8S-Mr-XL0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="BPT-PC-8yr" secondAttribute="trailing" constant="30" id="xzs-dx-HLb"/>
-                            <constraint firstItem="BPT-PC-8yr" firstAttribute="centerX" secondItem="NuD-ls-qfk" secondAttribute="centerX" id="ygp-Yt-peh"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -142,8 +134,25 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-FM-K6g">
+                                <rect key="frame" x="12" y="11" width="48" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeBtn:" destination="LcD-t4-zND" eventType="touchUpInside" id="tc1-NR-KXt"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="backSeg" id="hhL-6K-4Z4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="At0-8Z-AkZ">
+                                <rect key="frame" x="93" y="52" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="GmR-vd-vMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dnk-dC-nwz" customClass="My">
-                                <rect key="frame" x="20" y="81" width="363" height="566"/>
+                                <rect key="frame" x="20" y="81" width="355" height="566"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="6" id="YNF-9a-V2W">
                                     <size key="itemSize" width="80" height="80"/>
@@ -152,7 +161,7 @@
                                     <inset key="sectionInset" minX="6" minY="6" maxX="6" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <imageView key="backgroundView" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Silicon-Valley-real-estate-The-Registry" id="juN-fe-dqQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="363" height="566"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="355" height="566"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <cells>
@@ -184,23 +193,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-FM-K6g">
-                                <rect key="frame" x="12" y="11" width="48" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <action selector="closeBtn:" destination="LcD-t4-zND" eventType="touchUpInside" id="tc1-NR-KXt"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="backSeg" id="hhL-6K-4Z4"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="At0-8Z-AkZ">
-                                <rect key="frame" x="93" y="52" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="GmR-vd-vMC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.80011686949769312" green="0.8736411671649289" blue="0.86380139843681158" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
