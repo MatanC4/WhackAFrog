@@ -31,7 +31,7 @@
                                     <color key="titleShadowColor" red="0.95615493549999997" green="0.85649336089999994" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LcD-t4-zND" kind="modal" identifier="mediumSeg" id="3P7-nq-N89"/>
+                                    <segue destination="LcD-t4-zND" kind="modal" identifier="mediumSeg" id="hXM-hC-NKa"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="klz-VY-tvO">
@@ -44,7 +44,7 @@
                                     <color key="titleShadowColor" red="0.95615493549999997" green="0.85649336089999994" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LcD-t4-zND" kind="modal" identifier="easySeg" id="9xh-f7-ubu"/>
+                                    <segue destination="LcD-t4-zND" kind="modal" identifier="hardSeg" id="sza-A7-LOI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3t-A5-cYs">
@@ -57,7 +57,7 @@
                                     <color key="titleShadowColor" red="0.95615493549873043" green="0.8564933608659614" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LcD-t4-zND" kind="modal" identifier="hardSeg" id="0ib-MQ-PAa"/>
+                                    <segue destination="LcD-t4-zND" kind="modal" identifier="easySeg" id="UOa-iF-HHc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="whack a frog" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuD-ls-qfk">
@@ -107,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rv2-Os-9R3">
-                                <rect key="frame" x="20" y="28" width="39" height="21"/>
+                                <rect key="frame" x="87" y="28" width="39" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -119,13 +119,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1g-PU-5Vd">
-                                <rect key="frame" x="299" y="28" width="56" height="21"/>
+                                <rect key="frame" x="232" y="27" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9N-kK-a6R">
-                                <rect key="frame" x="317" y="52" width="38" height="21"/>
+                                <rect key="frame" x="241" y="52" width="38" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="xeb-j3-W4X"/>
                                 </constraints>
@@ -142,26 +142,21 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="At0-8Z-AkZ">
-                                <rect key="frame" x="28" y="52" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="GmR-vd-vMC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dnk-dC-nwz" customClass="My">
-                                <rect key="frame" x="6" y="81" width="363" height="566"/>
-                                <color key="backgroundColor" red="0.88001316785812378" green="0.96099621057510376" blue="0.96969789266586304" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="20" y="81" width="363" height="566"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="6" id="YNF-9a-V2W">
                                     <size key="itemSize" width="80" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="6" minY="6" maxX="6" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <imageView key="backgroundView" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Silicon-Valley-real-estate-The-Registry" id="juN-fe-dqQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="363" height="566"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="boardCell" id="z8N-uT-fYr" customClass="MyCollectionViewCell" customModule="WhackAFrog" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleAspectFill" reuseIdentifier="boardCell" id="z8N-uT-fYr" customClass="MyCollectionViewCell" customModule="WhackAFrog" customModuleProvider="target">
                                         <rect key="frame" x="6" y="6" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -174,7 +169,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.96798044443130493" green="0.98830169439315796" blue="0.99242657423019409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="A5u-SJ-QL1" secondAttribute="trailing" constant="-7" id="Aa7-2e-90n"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="A5u-SJ-QL1" secondAttribute="bottom" constant="-6" id="Ret-QG-a5N"/>
@@ -189,10 +184,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xu-FM-K6g">
+                                <rect key="frame" x="12" y="11" width="48" height="30"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="closeBtn:" destination="LcD-t4-zND" eventType="touchUpInside" id="tc1-NR-KXt"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="backSeg" id="hhL-6K-4Z4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="At0-8Z-AkZ">
+                                <rect key="frame" x="93" y="52" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="GmR-vd-vMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.98198402907703275" green="0.98489749739727495" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.80011686949769312" green="0.8736411671649289" blue="0.86380139843681158" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="At0-8Z-AkZ" firstAttribute="leading" secondItem="8bE-MF-Z9K" secondAttribute="leadingMargin" constant="12" id="Ito-b4-49J"/>
                             <constraint firstItem="At0-8Z-AkZ" firstAttribute="top" secondItem="Rv2-Os-9R3" secondAttribute="bottom" constant="3" id="aiG-cF-HOY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dnk-dC-nwz" secondAttribute="trailing" constant="4" id="ja1-fo-qYl"/>
                             <constraint firstItem="hEI-9e-iOk" firstAttribute="top" secondItem="f30-rw-z1F" secondAttribute="bottom" constant="2" id="jjG-Go-AJv"/>
@@ -204,22 +215,21 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="CollectionViewGameBoard" destination="Dnk-dC-nwz" id="EDy-xh-iyz"/>
+                        <outlet property="hitsCounter" destination="At0-8Z-AkZ" id="2Ay-w5-cr5"/>
+                        <outlet property="missCounter" destination="hEI-9e-iOk" id="peC-3m-fCu"/>
+                        <outlet property="scoreCounter" destination="L9N-kK-a6R" id="mI0-vE-sDQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Eu-v6-SWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_Image" id="juN-fe-dqQ">
-                    <rect key="frame" x="0.0" y="0.0" width="363" height="566"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </objects>
-            <point key="canvasLocation" x="186.5" y="199.5"/>
+            <point key="canvasLocation" x="186.5" y="205.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="background_Image" width="1229" height="1421"/>
+        <image name="Silicon-Valley-real-estate-The-Registry" width="200" height="356"/>
         <image name="silicon valley poster" width="336" height="480"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0ib-MQ-PAa"/>
+        <segue reference="sza-A7-LOI"/>
     </inferredMetricsTieBreakers>
 </document>

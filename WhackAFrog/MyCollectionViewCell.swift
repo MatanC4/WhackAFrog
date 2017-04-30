@@ -10,28 +10,39 @@ import UIKit
 
 class MyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var MyImageView: UIImageView!
-    var imageArr: [UIImage] = [UIImage(named: "ErlichBachman")!,
+    var imageArr: [UIImage] = [UIImage(named: "erlich")!,
                                  UIImage(named: "richard")!,
-                                 UIImage(named: "jaredDan")!,
+                                 UIImage(named: "jared")!,
                                  UIImage(named: "bighead")!,
-                                 UIImage(named: "gilfoyle")!]
+                                 UIImage(named: "gilfoyle")!,
+                                 UIImage(named: "Gavin-Belson")!,
+                                 UIImage(named: "lori")!,
+                                 UIImage(named: "peterGregory")!,
+                                 UIImage(named: "monica")!]
+    
+    
+    
+    var defaultImage: UIImage = UIImage(named:"ppIcon")!
+
+    var fliped:Bool = false
     
     //let defaultImage = UIImage(named: "ErlichBachman")
     
     
+    func flipCell(){
+        fliped = true
+        let randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
+        MyImageView?.image = imageArr[randomIndex]
 
-    
-    func setDefaultImage()  {
-        MyImageView?.image = UIImage(named: "richard")
-        print("erlich was here")
     }
     
-    func replaceImage(previous:Int) {
-        var randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
-        //make sure same image wont repeat
-        while randomIndex == previous {
-            randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
-        }
+    func setDefaultImage()  {
+        fliped = false
+        MyImageView?.image = defaultImage
+    }
+    
+    func replaceImage() {
+        let randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
         MyImageView?.image = imageArr[randomIndex]
     }
     

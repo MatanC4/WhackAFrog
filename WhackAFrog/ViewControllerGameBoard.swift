@@ -10,12 +10,23 @@ import UIKit
 
 class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UICollectionViewDelegate {
    
+    @IBAction func closeBtn(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {});
+    }
+    @IBOutlet weak var scoreCounter: UILabel!
+    @IBOutlet weak var missCounter: UILabel!
+    @IBOutlet weak var hitsCounter: UILabel!
     @IBOutlet weak var headerForData: UICollectionReusableView!
     @IBOutlet weak var scoreCount: UILabel!
     @IBOutlet weak var navBar: UINavigationItem!
-    @IBOutlet weak var missCount: UILabel!
-    @IBOutlet weak var hitsCount: UILabel!
+    
+    var hits:Int = 0
+    var miss:Int = 0
+
     var gameLevel: Int!
+    var Timer: NSTimer!
+    var xPos :Int! = 1
+    var yPos :Int! = 1
     
     @IBOutlet weak var CollectionViewGameBoard: UICollectionView!
     
@@ -30,6 +41,90 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         drawBoard()
         self.CollectionViewGameBoard.dataSource = self
         self.CollectionViewGameBoard.delegate = self
+        print("game level is \(gameLevel)")
+
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        setTimer()
+    }
+    
+    func setTimer(){
+        var interval:Double
+        interval = 1.5/Double(gameLevel)
+        Timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: #selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
+    }
+    
+    func setNewXY(){
+        xPos = Int(arc4random_uniform(UInt32(numOfItemsInRow)))
+        var tempY = Int(arc4random_uniform(UInt32(numOfRows)))
+        while yPos == tempY {
+            tempY = Int(arc4random_uniform(UInt32(numOfRows)))
+        }
+        yPos = tempY
+    }
+    
+
+    func OnTimerTick() {
+        hidePreviousImage()
+        setNewXY()
+        let index = NSIndexPath(forRow: xPos, inSection: yPos)
+        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
+        cell.flipCell()
+    }
+    
+    func hidePreviousImage()  {
+        let index = NSIndexPath(forRow: xPos, inSection: yPos)
+        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
+        if cell.fliped{
+            incMiss()
+        }
+        cell.setDefaultImage()
+    }
+    
+    func incHit(){
+        hits+=1
+        hitsCounter.text = "\(hits)"
+        if hits==8 {
+            showWinnerAlert()
+        }
+    }
+    
+    func incMiss(){
+        miss+=1
+        missCounter.text = "\(miss)"
+        if miss==3 {
+           showLoserAlert()
+            self.dismissViewControllerAnimated(true, completion: {});
+
+        }
+    }
+    
+        
+    func showWinnerAlert()  {
+        let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        Timer.invalidate()
+    }
+    
+    func showLoserAlert(){
+        let alert = UIAlertController(title: "Loser", message: " you missed \(miss) times.. \u{1F425} ", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        Timer.invalidate()
+
+    }
+    
+
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(indexPath) as! MyCollectionViewCell
+        if cell.fliped {
+            incHit()
+            cell.setDefaultImage()
+        }
+        
         
     }
     
@@ -95,6 +190,8 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 //        }
 //        
 //        return
+        
+        
     }
 
 
@@ -103,7 +200,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         
     //}
 
-    
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -115,12 +211,11 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
     
     
-    
-    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("boardCell", forIndexPath: indexPath) as! MyCollectionViewCell
-        cell.replaceImage(0)
+        //cell.replaceImage(0)
+        cell.setDefaultImage()
+        cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
         print("image should be set now")
         return cell
     }
