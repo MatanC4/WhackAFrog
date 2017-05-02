@@ -128,9 +128,9 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
     
     func drawBoard() {
-        let screenSize = CollectionViewGameBoard.layer.preferredFrameSize()
+        //let screenSize = CollectionViewGameBoard.layer.preferredFrameSize()
         print(CollectionViewGameBoard.layer.preferredFrameSize())
-        //let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = UIScreen.mainScreen().bounds
         let gameBoardWidth = screenSize.width
         let gameBoardHeight = screenSize.height
         print(gameBoardWidth)
@@ -153,25 +153,29 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 //        //updateScoreView()
 //        //updateHitsView()
 //        //updateMissesView()
-        
+//        
 //        let screenHeight = UIScreen.mainScreen().bounds.size.height
 //    
 //        switch (screenHeight) {
 //            
 //        // iPhone 4s
 //        case 480:
-//            
+//        print("detected iPhone 4s")
+//                    numOfItemsInRow = 4
+//                    numOfRows = 3
 //            break;
 //            
 //        // iPhone 5s
 //        case 568:
-//            
-//            break;
-//            
+//        print("detected iPhone 5s")
+//                    numOfItemsInRow = 4
+//                    numOfRows = 3
+//                    break;
+//    
 //        // iPhone 6
 //        case 667:
 //            print("detected iPhone 6")
-//            numOfItemsInRow = 6
+//            numOfItemsInRow = 5
 //            numOfRows = 3
 //            break;
 //            
@@ -179,9 +183,8 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 //        case 736:
 //            print("detected iPhone 6 plus")
 //            numOfItemsInRow = 6
-//            numOfRows = 4
+//            numOfRows = 3
 //            break;
-//            
 //        default:
 //            // it's an iPad
 //            
@@ -189,16 +192,16 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 //        }
 //        
 //        return
-        
-        
+//        
+//        
+//    }
     }
-
 
     
     //func startGame(parameters)  {
         
     //}
-
+    
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

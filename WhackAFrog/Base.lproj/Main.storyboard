@@ -219,7 +219,7 @@
     </scenes>
     <resources>
         <image name="Silicon-Valley-real-estate-The-Registry" width="200" height="356"/>
-        <image name="silicon valley poster" width="336" height="480"/>
+        <image name="silicon valley poster" width="350" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="sza-A7-LOI"/>
