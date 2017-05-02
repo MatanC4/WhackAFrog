@@ -16,24 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet var levelBtnHard: UIButton!
     var firstLaunch: Bool = true
     enum GameLevel: Int {
-        case Easy = 1 , Medium ,Hard
+        case easy = 1 , medium ,hard
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let controller = segue.destinationViewController as! ViewControllerGameBoard
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination as! ViewControllerGameBoard
         firstLaunch = false
         switch segue.identifier! {
             case "easySeg":
-                controller.gameLevel = GameLevel.Easy.rawValue
-                print( GameLevel.Easy.rawValue )
+                controller.gameLevel = GameLevel.easy.rawValue
+                print( GameLevel.easy.rawValue )
                 break
             case "mediumSeg":
-                controller.gameLevel = GameLevel.Medium.rawValue
+                controller.gameLevel = GameLevel.medium.rawValue
                 print("Medium game begins")
                 break
             case "hardSeg":
-                controller.gameLevel = GameLevel.Hard.rawValue
+                controller.gameLevel = GameLevel.hard.rawValue
                 print("Hard game begins")
                 break
             default:
@@ -45,10 +45,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        self.levelBtnEasy?.layer.cornerRadius = 10
-        print(self.levelBtnEasy?.layer.cornerRadius.hashValue)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if firstLaunch{
         showWelcomeAlert()
         }
@@ -60,9 +59,9 @@ class ViewController: UIViewController {
     }
     
     func showWelcomeAlert(){
-        let alert = UIAlertController(title: "Intro", message: "We are playing whack a frog in Silicon Valley style! \n All you need to do is make sure you hit the faces before they turn back to hats..", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "Lets do this!", style: UIAlertActionStyle.Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Intro", message: "We are playing whack a frog in Silicon Valley style! \n All you need to do is make sure you hit the faces before they turn back to hats..", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Lets do this!", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 
 

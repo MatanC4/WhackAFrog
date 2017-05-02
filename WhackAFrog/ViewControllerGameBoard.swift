@@ -9,10 +9,11 @@
 import UIKit
 
 class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UICollectionViewDelegate {
+ 
+
    
-    @IBAction func closeBtn(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {});
-    }
+   
+    
     @IBOutlet weak var scoreCounter: UILabel!
     @IBOutlet weak var missCounter: UILabel!
     @IBOutlet weak var hitsCounter: UILabel!
@@ -24,7 +25,7 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     var miss:Int = 0
 
     var gameLevel: Int!
-    var Timer: NSTimer!
+    var timer: Timer!
     var xPos :Int! = 1
     var yPos :Int! = 1
     
@@ -46,14 +47,17 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         setTimer()
     }
     
     func setTimer(){
         var interval:Double
         interval = 1.5/Double(gameLevel)
-        Timer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: #selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
+        
+        //Timer = Timer.scheduledTimerWithTimeInterval(interval, target: self, selector: //#selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
+        
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(interval), target: self, selector: #selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
     }
     
     func setNewXY(){
@@ -69,14 +73,18 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     func OnTimerTick() {
         hidePreviousImage()
         setNewXY()
-        let index = NSIndexPath(forRow: xPos, inSection: yPos)
-        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
+
+        
+        //let index = NSIndexPath(forRow: xPos, inSection: yPos)
+        let cell = CollectionViewGameBoard.cellForItem(at: IndexPath(row: xPos, section:yPos)) as! MyCollectionViewCell
+        //let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
         cell.flipCell()
     }
     
     func hidePreviousImage()  {
-        let index = NSIndexPath(forRow: xPos, inSection: yPos)
-        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
+        //let index = NSIndexPath(forRow: xPos, inSection: yPos)
+        let cell = CollectionViewGameBoard.cellForItem(at: IndexPath(row: xPos, section:yPos)) as! MyCollectionViewCell
+
         if cell.fliped{
             incMiss()
         }
@@ -102,23 +110,23 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
         
     func showWinnerAlert()  {
-        let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        Timer.invalidate()
+        let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        timer.invalidate()
     }
     
     func showLoserAlert(){
-        let alert = UIAlertController(title: "Loser", message: " you missed \(miss) times.. \u{1F425} ", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.Cancel, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
-        Timer.invalidate()
+        let alert = UIAlertController(title: "Loser", message: " you missed \(miss) times.. \u{1F425} ", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        timer.invalidate()
 
     }
     
 
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = CollectionViewGameBoard.cellForItemAtIndexPath(indexPath) as! MyCollectionViewCell
+    private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
+        let cell = CollectionViewGameBoard.cellForItem(at: indexPath as IndexPath) as! MyCollectionViewCell
         if cell.fliped {
             incHit()
             cell.setDefaultImage()
@@ -130,7 +138,7 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     func drawBoard() {
         //let screenSize = CollectionViewGameBoard.layer.preferredFrameSize()
         print(CollectionViewGameBoard.layer.preferredFrameSize())
-        let screenSize = UIScreen.mainScreen().bounds
+        let screenSize = UIScreen.main.bounds
         let gameBoardWidth = screenSize.width
         let gameBoardHeight = screenSize.height
         print(gameBoardWidth)
@@ -204,23 +212,48 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
     
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("numOfItemsInRow is \(numOfItemsInRow)")
         return numOfItemsInRow
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        print("numberOfSectionsInCollectionView is \(numOfRows)")
         return numOfRows
     }
     
+//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+//        print("numberOfSectionsInCollectionView")
+//        
+//        return numOfRows
+//    }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("boardCell", forIndexPath: indexPath) as! MyCollectionViewCell
-        //cell.replaceImage(0)
+    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCell
+//        
+//        return cell
+//    }
+    
+    
+    @available(iOS 6.0, *)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCell", for: indexPath) as! MyCollectionViewCell
         cell.setDefaultImage()
-        cell.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0)
         print("image should be set now")
         return cell
     }
+
+    
+//     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyCollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCell", for: indexPath as IndexPath) as! MyCollectionViewCell
+//        //cell.replaceImage(0)
+//        cell.setDefaultImage()
+//        cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+//        print("image should be set now")
+//        return cell
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
