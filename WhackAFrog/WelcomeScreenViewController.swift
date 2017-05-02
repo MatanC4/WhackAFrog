@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
-    
+    var AudioPlayer: AVAudioPlayer!
     @IBOutlet var levelBtnEasy: UIButton!
     @IBOutlet var levelBtnMedium: UIButton!
     @IBOutlet var levelBtnHard: UIButton!
@@ -23,18 +24,16 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! ViewControllerGameBoard
         firstLaunch = false
+        AudioPlayer.stop()
         switch segue.identifier! {
             case "easySeg":
                 controller.gameLevel = GameLevel.easy.rawValue
-                print( GameLevel.easy.rawValue )
                 break
             case "mediumSeg":
                 controller.gameLevel = GameLevel.medium.rawValue
-                print("Medium game begins")
                 break
             case "hardSeg":
                 controller.gameLevel = GameLevel.hard.rawValue
-                print("Hard game begins")
                 break
             default:
                 return
@@ -44,12 +43,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       self.levelBtnEasy?.layer.cornerRadius = 10
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if firstLaunch{
         showWelcomeAlert()
+        playSound()
         }
     }
 
@@ -63,8 +63,18 @@ class ViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Lets do this!", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-
-
-
+    
+    func playSound() {
+        do {
+            let bgSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "SiliconValleyRingtone", ofType: "m4r")!)
+            AudioPlayer = try AVAudioPlayer(contentsOf: bgSound as URL)
+            AudioPlayer.numberOfLoops = 4
+            AudioPlayer.prepareToPlay()
+            AudioPlayer.play()
+        }
+        catch {
+            print(error)
+        }
+    }
 }
 

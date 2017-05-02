@@ -7,13 +7,16 @@
 //
 
 import UIKit
-
+import AudioToolbox
 class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UICollectionViewDelegate {
  
 
+    @IBAction func closeBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+
+    }
    
-   
-    
+    //var firstLaunch: Bool = false
     @IBOutlet weak var scoreCounter: UILabel!
     @IBOutlet weak var missCounter: UILabel!
     @IBOutlet weak var hitsCounter: UILabel!
@@ -23,6 +26,7 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
     var hits:Int = 0
     var miss:Int = 0
+    var score:Int = 0
 
     var gameLevel: Int!
     var timer: Timer!
@@ -31,7 +35,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
     @IBOutlet weak var CollectionViewGameBoard: UICollectionView!
     
-    // data source
     private let paddingsFromBothSide: CGFloat = 10.0
     private let cellWidth:CGFloat = 80.0
     private var numOfRows: Int = 0
@@ -42,21 +45,18 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         drawBoard()
         self.CollectionViewGameBoard.dataSource = self
         self.CollectionViewGameBoard.delegate = self
-        print("game level is \(gameLevel)")
-
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
+        let orientationValue = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(orientationValue, forKey: "orientation")
         setTimer()
     }
     
     func setTimer(){
         var interval:Double
         interval = 1.5/Double(gameLevel)
-        
-        //Timer = Timer.scheduledTimerWithTimeInterval(interval, target: self, selector: //#selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
-        
         timer = Timer.scheduledTimer(timeInterval: TimeInterval(interval), target: self, selector: #selector(ViewControllerGameBoard.OnTimerTick), userInfo: nil, repeats: true)
     }
     
@@ -73,16 +73,11 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     func OnTimerTick() {
         hidePreviousImage()
         setNewXY()
-
-        
-        //let index = NSIndexPath(forRow: xPos, inSection: yPos)
         let cell = CollectionViewGameBoard.cellForItem(at: IndexPath(row: xPos, section:yPos)) as! MyCollectionViewCell
-        //let cell = CollectionViewGameBoard.cellForItemAtIndexPath(index) as! MyCollectionViewCell
         cell.flipCell()
     }
     
     func hidePreviousImage()  {
-        //let index = NSIndexPath(forRow: xPos, inSection: yPos)
         let cell = CollectionViewGameBoard.cellForItem(at: IndexPath(row: xPos, section:yPos)) as! MyCollectionViewCell
 
         if cell.fliped{
@@ -94,122 +89,91 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     func incHit(){
         hits+=1
         hitsCounter.text = "\(hits)"
-        if hits==8 {
+    }
+    
+    func incScore(){
+        score += 2
+        scoreCounter.text = "\(score)"
+        if score == 10  {
             showWinnerAlert()
         }
     }
+
+    
     
     func incMiss(){
         miss+=1
         missCounter.text = "\(miss)"
         if miss==3 {
            showLoserAlert()
-
         }
     }
     
         
     func showWinnerAlert()  {
         let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
         self.present(alert, animated: true, completion: nil)
         timer.invalidate()
     }
     
     func showLoserAlert(){
         let alert = UIAlertController(title: "Loser", message: " you missed \(miss) times.. \u{1F425} ", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
+        self.present(alert, animated: true, completion:nil)
         timer.invalidate()
-
     }
     
-
-    private func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: IndexPath) {
-        let cell = CollectionViewGameBoard.cellForItem(at: indexPath as IndexPath) as! MyCollectionViewCell
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        let cell = CollectionViewGameBoard.cellForItem(at: indexPath) as! MyCollectionViewCell
         if cell.fliped {
             incHit()
+            incScore()
             cell.setDefaultImage()
         }
-        
-        
     }
     
     func drawBoard() {
-        //let screenSize = CollectionViewGameBoard.layer.preferredFrameSize()
-        print(CollectionViewGameBoard.layer.preferredFrameSize())
-        let screenSize = UIScreen.main.bounds
-        let gameBoardWidth = screenSize.width
-        let gameBoardHeight = screenSize.height
-        print(gameBoardWidth)
-        print(gameBoardHeight)
-        numOfItemsInRow = Int((gameBoardHeight)/(cellWidth + paddingsFromBothSide))
-        if numOfItemsInRow>6 {
-           numOfItemsInRow = 6
+        let screenHeight = UIScreen.main.bounds.size.height
+        switch (screenHeight) {
+            
+        // iPhone 4*
+        case 480:
+        print("detected iPhone 4s")
+                    numOfItemsInRow = 3
+                    numOfRows = 4
+            break;
+            
+        // iPhone 5*
+        case 568:
+        print("detected iPhone 5s")
+                    numOfItemsInRow = 3
+                    numOfRows = 4
+                    break;
+    
+        // iPhone 6*
+        case 667:
+            print("detected iPhone 6")
+            numOfItemsInRow = 4
+            numOfRows = 6
+            break;
+            
+        // iPhone  Plus
+        case 736:
+            print("detected iPhone 6 plus")
+            numOfItemsInRow = 4
+            numOfRows = 7
+            break;
+        default:
+            // it's an iPad
+            break;
         }
-        numOfRows = Int((gameBoardWidth)/cellWidth + paddingsFromBothSide)
-        if numOfRows > 3 {
-            print("num of rows was lowered to 3")
-            numOfRows = 3
-        }
-
-        print(numOfItemsInRow)
-        print(numOfRows)
-        
-        //startGame()
-//
-//        //updateScoreView()
-//        //updateHitsView()
-//        //updateMissesView()
-//        
-//        let screenHeight = UIScreen.mainScreen().bounds.size.height
-//    
-//        switch (screenHeight) {
-//            
-//        // iPhone 4s
-//        case 480:
-//        print("detected iPhone 4s")
-//                    numOfItemsInRow = 4
-//                    numOfRows = 3
-//            break;
-//            
-//        // iPhone 5s
-//        case 568:
-//        print("detected iPhone 5s")
-//                    numOfItemsInRow = 4
-//                    numOfRows = 3
-//                    break;
-//    
-//        // iPhone 6
-//        case 667:
-//            print("detected iPhone 6")
-//            numOfItemsInRow = 5
-//            numOfRows = 3
-//            break;
-//            
-//        // iPhone 6 Plus
-//        case 736:
-//            print("detected iPhone 6 plus")
-//            numOfItemsInRow = 6
-//            numOfRows = 3
-//            break;
-//        default:
-//            // it's an iPad
-//            
-//            break;
-//        }
-//        
-//        return
-//        
-//        
-//    }
+        return
     }
+    
 
-    
-    //func startGame(parameters)  {
-        
-    //}
-    
+
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -222,20 +186,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         return numOfRows
     }
     
-//    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-//        print("numberOfSectionsInCollectionView")
-//        
-//        return numOfRows
-//    }
-    
-    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GameCell", for: indexPath) as! GameCell
-//        
-//        return cell
-//    }
-    
-    
     @available(iOS 6.0, *)
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCell", for: indexPath) as! MyCollectionViewCell
@@ -246,21 +196,12 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
 
     
-//     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> MyCollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCell", for: indexPath as IndexPath) as! MyCollectionViewCell
-//        //cell.replaceImage(0)
-//        cell.setDefaultImage()
-//        cell.backgroundColor = UIColor.white.withAlphaComponent(0)
-//        print("image should be set now")
-//        return cell
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-}
+   }
 
 

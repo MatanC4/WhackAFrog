@@ -16,6 +16,7 @@
 		45384B341E9F81D600ADCA15 /* WhackAFrogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B331E9F81D600ADCA15 /* WhackAFrogTests.swift */; };
 		45384B3F1E9F81D600ADCA15 /* WhackAFrogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45384B3E1E9F81D600ADCA15 /* WhackAFrogUITests.swift */; };
 		4575EFF31EAAB45000DBE2F9 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4575EFF21EAAB45000DBE2F9 /* MyCollectionViewCell.swift */; };
+		45F689EB1EB935C300D8B528 /* SiliconValleyRingtone.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 45F689EA1EB935C300D8B528 /* SiliconValleyRingtone.m4r */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		45384B3E1E9F81D600ADCA15 /* WhackAFrogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhackAFrogUITests.swift; sourceTree = "<group>"; };
 		45384B401E9F81D600ADCA15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4575EFF21EAAB45000DBE2F9 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		45F689EA1EB935C300D8B528 /* SiliconValleyRingtone.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = SiliconValleyRingtone.m4r; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				45384B1F1E9F81D600ADCA15 /* Main.storyboard */,
 				45384B251E9F81D600ADCA15 /* Assets.xcassets */,
 				45384B2A1E9F81D600ADCA15 /* Info.plist */,
+				45F689E91EB9359200D8B528 /* bgMusic */,
 				45384B221E9F81D600ADCA15 /* WhackAFrog.xcdatamodeld */,
 				4575EFF21EAAB45000DBE2F9 /* MyCollectionViewCell.swift */,
 			);
@@ -129,6 +132,14 @@
 				45384B401E9F81D600ADCA15 /* Info.plist */,
 			);
 			path = WhackAFrogUITests;
+			sourceTree = "<group>";
+		};
+		45F689E91EB9359200D8B528 /* bgMusic */ = {
+			isa = PBXGroup;
+			children = (
+				45F689EA1EB935C300D8B528 /* SiliconValleyRingtone.m4r */,
+			);
+			name = bgMusic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +205,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Matan;
 				TargetAttributes = {
 					45384B171E9F81D600ADCA15 = {
@@ -240,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45384B261E9F81D600ADCA15 /* Assets.xcassets in Resources */,
+				45F689EB1EB935C300D8B528 /* SiliconValleyRingtone.m4r in Resources */,
 				45384B211E9F81D600ADCA15 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,8 +342,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -353,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -376,8 +390,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -393,9 +409,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
