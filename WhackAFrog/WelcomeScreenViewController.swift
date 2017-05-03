@@ -20,7 +20,6 @@ class ViewController: UIViewController {
         case easy = 1 , medium ,hard
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! ViewControllerGameBoard
         firstLaunch = false
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
                 return
             }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

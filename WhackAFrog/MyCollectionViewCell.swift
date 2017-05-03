@@ -19,21 +19,13 @@ class MyCollectionViewCell: UICollectionViewCell {
                                  UIImage(named: "lori")!,
                                  UIImage(named: "peterGregory")!,
                                  UIImage(named: "monica")!]
-    
-    
-    
     var defaultImage: UIImage = UIImage(named:"ppIcon")!
-
     var fliped:Bool = false
-    
-    //let defaultImage = UIImage(named: "ErlichBachman")
-    
     
     func flipCell(){
         fliped = true
         let randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
         MyImageView?.image = imageArr[randomIndex]
-
     }
     
     func setDefaultImage()  {
@@ -45,8 +37,4 @@ class MyCollectionViewCell: UICollectionViewCell {
         let randomIndex = Int(arc4random_uniform(UInt32(imageArr.count)))
         MyImageView?.image = imageArr[randomIndex]
     }
-    
-    
-    
-    
 }

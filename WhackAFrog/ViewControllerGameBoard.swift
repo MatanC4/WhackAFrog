@@ -13,7 +13,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 
     @IBAction func closeBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-
     }
    
     @IBOutlet weak var scoreCounter: UILabel!
@@ -41,7 +40,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         self.CollectionViewGameBoard.delegate = self
     }
     
-    
     override func viewDidAppear(_ animated: Bool) {
         let orientationValue = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(orientationValue, forKey: "orientation")
@@ -63,7 +61,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         yPos = tempY
     }
     
-
     func OnTimerTick() {
         hidePreviousImage()
         setNewXY()
@@ -101,7 +98,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         }
     }
     
-        
     func showWinnerAlert()  {
         let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
@@ -164,10 +160,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         return
     }
     
-
-
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numOfItemsInRow
     }
@@ -184,13 +176,10 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         return cell
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
    }
 
 
