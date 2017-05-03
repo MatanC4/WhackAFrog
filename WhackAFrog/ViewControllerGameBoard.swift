@@ -16,13 +16,10 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
 
     }
    
-    //var firstLaunch: Bool = false
     @IBOutlet weak var scoreCounter: UILabel!
     @IBOutlet weak var missCounter: UILabel!
     @IBOutlet weak var hitsCounter: UILabel!
-    @IBOutlet weak var headerForData: UICollectionReusableView!
     @IBOutlet weak var scoreCount: UILabel!
-    @IBOutlet weak var navBar: UINavigationItem!
     
     var hits:Int = 0
     var miss:Int = 0
@@ -34,9 +31,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     var yPos :Int! = 1
     
     @IBOutlet weak var CollectionViewGameBoard: UICollectionView!
-    
-    private let paddingsFromBothSide: CGFloat = 10.0
-    private let cellWidth:CGFloat = 80.0
     private var numOfRows: Int = 0
     private var numOfItemsInRow: Int = 0
 
@@ -92,14 +86,12 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     }
     
     func incScore(){
-        score += 2
+        score += 5
         scoreCounter.text = "\(score)"
-        if score == 10  {
+        if score == 30  {
             showWinnerAlert()
         }
     }
-
-    
     
     func incMiss(){
         miss+=1
@@ -147,21 +139,21 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
             
         // iPhone 5*
         case 568:
-        print("detected iPhone 5s")
+        print("detected iPhone 5/5s")
                     numOfItemsInRow = 3
                     numOfRows = 4
                     break;
     
         // iPhone 6*
         case 667:
-            print("detected iPhone 6")
+            print("detected iPhone 6/7")
             numOfItemsInRow = 4
             numOfRows = 6
             break;
             
         // iPhone  Plus
         case 736:
-            print("detected iPhone 6 plus")
+            print("detected iPhone  plus")
             numOfItemsInRow = 4
             numOfRows = 7
             break;
@@ -177,12 +169,10 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("numOfItemsInRow is \(numOfItemsInRow)")
         return numOfItemsInRow
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("numberOfSectionsInCollectionView is \(numOfRows)")
         return numOfRows
     }
     
@@ -191,7 +181,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "boardCell", for: indexPath) as! MyCollectionViewCell
         cell.setDefaultImage()
         cell.backgroundColor = UIColor.white.withAlphaComponent(0)
-        print("image should be set now")
         return cell
     }
 

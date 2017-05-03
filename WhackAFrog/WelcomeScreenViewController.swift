@@ -9,13 +9,13 @@
 import UIKit
 import AVFoundation
 
+
 class ViewController: UIViewController {
-    
+    var firstLaunch: Bool = true
     var AudioPlayer: AVAudioPlayer!
     @IBOutlet var levelBtnEasy: UIButton!
     @IBOutlet var levelBtnMedium: UIButton!
     @IBOutlet var levelBtnHard: UIButton!
-    var firstLaunch: Bool = true
     enum GameLevel: Int {
         case easy = 1 , medium ,hard
     }
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         do {
             let bgSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "SiliconValleyRingtone", ofType: "m4r")!)
             AudioPlayer = try AVAudioPlayer(contentsOf: bgSound as URL)
-            AudioPlayer.numberOfLoops = 4
+            AudioPlayer.numberOfLoops = 2
             AudioPlayer.prepareToPlay()
             AudioPlayer.play()
         }
