@@ -10,19 +10,23 @@ import UIKit
 import AudioToolbox
 class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UICollectionViewDelegate {
  
+    @IBOutlet weak var dataView: UIView!
 
     @IBAction func closeBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBOutlet weak var hitsCounter: UILabel!
+  
+    @IBOutlet weak var missCounter: UILabel!
+    
    
     @IBOutlet weak var scoreCounter: UILabel!
-    @IBOutlet weak var missCounter: UILabel!
-    @IBOutlet weak var hitsCounter: UILabel!
-    @IBOutlet weak var scoreCount: UILabel!
-    
+
+//    
     var hits:Int = 0
     var miss:Int = 0
-    var score:Int = 0
+   var score:Int = 0
 
     var gameLevel: Int!
     var timer: Timer!
@@ -77,13 +81,10 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         cell.setDefaultImage()
     }
     
-    func incHit(){
-        hits+=1
-        hitsCounter.text = "\(hits)"
-    }
+
     
     func incScore(){
-        score += 5
+        score += 3
         scoreCounter.text = "\(score)"
         if score == 30  {
             showWinnerAlert()
@@ -116,7 +117,7 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         let cell = CollectionViewGameBoard.cellForItem(at: indexPath) as! MyCollectionViewCell
         if cell.fliped {
-            incHit()
+            //incHit()
             incScore()
             cell.setDefaultImage()
         }
@@ -126,36 +127,26 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         let screenHeight = UIScreen.main.bounds.size.height
         switch (screenHeight) {
             
-        // iPhone 4*
-        case 480:
-        print("detected iPhone 4s")
-                    numOfItemsInRow = 3
-                    numOfRows = 4
-            break;
-            
         // iPhone 5*
         case 568:
-        print("detected iPhone 5/5s")
-                    numOfItemsInRow = 3
-                    numOfRows = 4
-                    break;
-    
+            numOfItemsInRow = 3
+            numOfRows = 5
+            break;
         // iPhone 6*
         case 667:
-            print("detected iPhone 6/7")
             numOfItemsInRow = 4
             numOfRows = 6
             break;
             
         // iPhone  Plus
         case 736:
-            print("detected iPhone  plus")
             numOfItemsInRow = 4
             numOfRows = 7
             break;
         default:
-            // it's an iPad
-            break;
+            numOfItemsInRow = 3
+            numOfRows = 5
+                break;
         }
         return
     }

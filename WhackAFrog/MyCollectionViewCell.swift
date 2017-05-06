@@ -20,6 +20,7 @@ class MyCollectionViewCell: UICollectionViewCell {
                                  UIImage(named: "peterGregory")!,
                                  UIImage(named: "monica")!]
     var defaultImage: UIImage = UIImage(named:"ppIcon")!
+    
     var fliped:Bool = false
     
     func flipCell(){
