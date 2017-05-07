@@ -20,10 +20,8 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
   
     @IBOutlet weak var missCounter: UILabel!
     
-   
     @IBOutlet weak var scoreCounter: UILabel!
-
-//    
+ 
     var hits:Int = 0
     var miss:Int = 0
    var score:Int = 0
@@ -99,6 +97,13 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "backToMain" {
+                let controller = segue.destination as! WelcomeScreenViewController
+                controller.firstLaunch = false
+        }
+    }
+    
     func showWinnerAlert()  {
         let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
@@ -112,6 +117,8 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         self.present(alert, animated: true, completion:nil)
         timer.invalidate()
     }
+    
+    
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))

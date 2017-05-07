@@ -10,12 +10,12 @@ import UIKit
 import AVFoundation
 
 
-class ViewController: UIViewController {
+class WelcomeScreenViewController: UIViewController {
     var firstLaunch: Bool = true
     var AudioPlayer: AVAudioPlayer!
-    @IBOutlet var levelBtnEasy: UIButton!
-    @IBOutlet var levelBtnMedium: UIButton!
-    @IBOutlet var levelBtnHard: UIButton!
+    @IBOutlet weak var levelBtnEasy: UIButton!
+    @IBOutlet weak var levelBtnMedium: UIButton!
+    @IBOutlet weak var levelBtnHard: UIButton!
     enum GameLevel: Int {
         case easy = 1 , medium ,hard
     }
@@ -41,7 +41,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        levelBtnEasy.clipsToBounds = true
+        levelBtnEasy.layer.cornerRadius = 20
+        levelBtnEasy.layer.borderWidth = 0.5
         
+        levelBtnMedium.clipsToBounds = true
+        levelBtnMedium.layer.cornerRadius = 20
+        levelBtnMedium.layer.borderWidth = 0.5
+        
+        levelBtnHard.clipsToBounds = true
+        levelBtnHard.layer.cornerRadius = 20
+        levelBtnHard.layer.borderWidth = 0.5
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +63,7 @@ class ViewController: UIViewController {
         showWelcomeAlert()
         playSound()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {

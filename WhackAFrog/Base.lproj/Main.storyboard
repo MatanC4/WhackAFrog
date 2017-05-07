@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome Screen View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WhackAFrog" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeScreenViewController" customModule="WhackAFrog" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -83,7 +83,6 @@
                             <constraint firstAttribute="trailingMargin" secondItem="W3t-A5-cYs" secondAttribute="trailing" constant="30" id="SHT-is-zLJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="W3t-A5-cYs" secondAttribute="trailing" constant="30" id="Upw-my-FDk"/>
                             <constraint firstItem="mgV-JW-APY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eQZ-ak-kPi"/>
-                            <constraint firstItem="BPT-PC-8yr" firstAttribute="top" secondItem="W3t-A5-cYs" secondAttribute="bottom" constant="3" id="mjQ-dr-rNT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mgV-JW-APY" secondAttribute="bottom" id="pCp-Vf-nHr"/>
                             <constraint firstAttribute="trailing" secondItem="mgV-JW-APY" secondAttribute="trailing" id="pXg-6e-JoY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="klz-VY-tvO" secondAttribute="trailing" constant="30" id="rJP-cJ-Bwb"/>
@@ -93,6 +92,11 @@
                             <constraint firstItem="BPT-PC-8yr" firstAttribute="top" secondItem="W3t-A5-cYs" secondAttribute="bottom" constant="1" id="zOi-h0-HHd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="levelBtnEasy" destination="W3t-A5-cYs" id="boN-fF-s7R"/>
+                        <outlet property="levelBtnHard" destination="klz-VY-tvO" id="7Aj-NQ-uWG"/>
+                        <outlet property="levelBtnMedium" destination="BPT-PC-8yr" id="XEe-8Q-WsH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
