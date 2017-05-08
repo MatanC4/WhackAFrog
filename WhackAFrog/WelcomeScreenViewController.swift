@@ -22,8 +22,10 @@ class WelcomeScreenViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! ViewControllerGameBoard
+        if firstLaunch{
+            AudioPlayer.stop()
+        }
         firstLaunch = false
-        AudioPlayer.stop()
         switch segue.identifier! {
             case "easySeg":
                 controller.gameLevel = GameLevel.easy.rawValue

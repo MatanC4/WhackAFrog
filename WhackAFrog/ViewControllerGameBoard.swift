@@ -106,14 +106,14 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
     
     func showWinnerAlert()  {
         let alert = UIAlertController(title: "Nice", message: "Well Done! you made \(hits) hits", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
+        alert.addAction(UIAlertAction(title: "NEXT PLEASE", style: UIAlertActionStyle.default, handler: { action in self.dismiss(animated: true, completion: nil)}))
         self.present(alert, animated: true, completion: nil)
         timer.invalidate()
     }
     
     func showLoserAlert(){
         let alert = UIAlertController(title: "Loser", message: " you missed \(miss) times.. \u{1F425} ", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "backToMain", sender: self) }))
+        alert.addAction(UIAlertAction(title: "try again", style: UIAlertActionStyle.default, handler: { action in self.dismiss(animated: true, completion: nil)}))
         self.present(alert, animated: true, completion:nil)
         timer.invalidate()
     }

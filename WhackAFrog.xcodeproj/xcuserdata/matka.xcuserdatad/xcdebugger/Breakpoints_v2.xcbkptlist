@@ -24,11 +24,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhackAFrog/WelcomeScreenViewController.swift"
-            timestampString = "515670023.210344"
+            timestampString = "515947346.474302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
