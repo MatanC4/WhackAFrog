@@ -48,6 +48,16 @@
                ReferencedContainer = "container:WhackAFrog.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "45839E911EC1E54400F28418"
+               BuildableName = "WhackAFrogUITests2.xctest"
+               BlueprintName = "WhackAFrogUITests2"
+               ReferencedContainer = "container:WhackAFrog.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

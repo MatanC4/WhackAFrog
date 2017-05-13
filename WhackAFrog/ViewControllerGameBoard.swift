@@ -24,12 +24,12 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
  
     var hits:Int = 0
     var miss:Int = 0
-   var score:Int = 0
+    var score:Int = 0
 
     var gameLevel: Int!
     var timer: Timer!
-    var xPos :Int! = 1
-    var yPos :Int! = 1
+    var xPos: Int! = 1
+    var yPos:Int! = 1
     
     @IBOutlet weak var CollectionViewGameBoard: UICollectionView!
     private var numOfRows: Int = 0
@@ -124,7 +124,7 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         let cell = CollectionViewGameBoard.cellForItem(at: indexPath) as! MyCollectionViewCell
         if cell.fliped {
-            //incHit()
+            hits += 1
             incScore()
             cell.setDefaultImage()
         }
@@ -144,7 +144,6 @@ class ViewControllerGameBoard: UIViewController , UICollectionViewDataSource ,UI
             numOfItemsInRow = 4
             numOfRows = 6
             break;
-            
         // iPhone  Plus
         case 736:
             numOfItemsInRow = 4
